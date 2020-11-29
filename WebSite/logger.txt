@@ -1,0 +1,10 @@
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Ilya\source\repos\WebSite\WebSite
+Processing request /docs/4.5/dist/js/bootstrap.bundle.min.js
+Processing request /product.css
+Processing request /docs/4.5/dist/css/bootstrap.min.css
+Processing request /Home/product.css
+Processing request /docs/4.5/dist/js/bootstrap.bundle.min.js
+Processing request /docs/4.5/dist/css/bootstrap.min.css
+Processing request /Home/About

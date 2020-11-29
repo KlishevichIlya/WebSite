@@ -13,7 +13,11 @@ namespace WebSite.Models
         public string Price { get; set; }
         public string Color { get; set; }
         public bool isNew { get; set; }
+        public string img { get; set; }
 
         public List<CarOrder> Orders { get; set; }
+
+        public int DescriotionCarId { get; set; }
+        public DescriotionCar DescriotionCar { get; set; }
     }
 }

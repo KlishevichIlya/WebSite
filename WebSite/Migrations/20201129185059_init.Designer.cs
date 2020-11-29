@@ -10,8 +10,8 @@ using WebSite.Models;
 namespace WebSite.Migrations
 {
     [DbContext(typeof(CarContext))]
-    [Migration("20201125071833_Init")]
-    partial class Init
+    [Migration("20201129185059_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,12 +34,18 @@ namespace WebSite.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("DescriotionCarId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("img")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("isNew")
@@ -70,6 +76,36 @@ namespace WebSite.Migrations
                     b.HasIndex("OrderId");
 
                     b.ToTable("CarOrder");
+                });
+
+            modelBuilder.Entity("WebSite.Models.DescriotionCar", b =>
+                {
+                    b.Property<int>("DescriotionCarId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Volume")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.Property<int>("mileAge")
+                        .HasColumnType("int");
+
+                    b.Property<string>("typeFuel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DescriotionCarId");
+
+                    b.HasIndex("CarId")
+                        .IsUnique();
+
+                    b.ToTable("DescriotionCar");
                 });
 
             modelBuilder.Entity("WebSite.Models.Order", b =>
@@ -147,6 +183,17 @@ namespace WebSite.Migrations
                     b.Navigation("Order");
                 });
 
+            modelBuilder.Entity("WebSite.Models.DescriotionCar", b =>
+                {
+                    b.HasOne("WebSite.Models.Car", "Car")
+                        .WithOne("DescriotionCar")
+                        .HasForeignKey("WebSite.Models.DescriotionCar", "CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Car");
+                });
+
             modelBuilder.Entity("WebSite.Models.Order", b =>
                 {
                     b.HasOne("WebSite.Models.User", "User")
@@ -160,6 +207,8 @@ namespace WebSite.Migrations
 
             modelBuilder.Entity("WebSite.Models.Car", b =>
                 {
+                    b.Navigation("DescriotionCar");
+
                     b.Navigation("Orders");
                 });
 

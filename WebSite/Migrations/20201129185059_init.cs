@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebSite.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,9 @@ namespace WebSite.Migrations
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    isNew = table.Column<bool>(type: "bit", nullable: false)
+                    isNew = table.Column<bool>(type: "bit", nullable: false),
+                    img = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DescriotionCarId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,6 +41,29 @@ namespace WebSite.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.UserId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DescriotionCar",
+                columns: table => new
+                {
+                    DescriotionCarId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    typeFuel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Year = table.Column<int>(type: "int", nullable: false),
+                    mileAge = table.Column<int>(type: "int", nullable: false),
+                    Volume = table.Column<int>(type: "int", nullable: false),
+                    CarId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DescriotionCar", x => x.DescriotionCarId);
+                    table.ForeignKey(
+                        name: "FK_DescriotionCar_Cars_CarId",
+                        column: x => x.CarId,
+                        principalTable: "Cars",
+                        principalColumn: "CarId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -101,6 +126,12 @@ namespace WebSite.Migrations
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DescriotionCar_CarId",
+                table: "DescriotionCar",
+                column: "CarId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_UserId",
                 table: "Orders",
                 column: "UserId");
@@ -112,10 +143,13 @@ namespace WebSite.Migrations
                 name: "CarOrder");
 
             migrationBuilder.DropTable(
-                name: "Cars");
+                name: "DescriotionCar");
 
             migrationBuilder.DropTable(
                 name: "Orders");
+
+            migrationBuilder.DropTable(
+                name: "Cars");
 
             migrationBuilder.DropTable(
                 name: "Users");

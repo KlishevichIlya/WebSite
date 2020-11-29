@@ -20,7 +20,11 @@ namespace WebSite.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Car>().HasKey(u => u.CarId);
+            modelBuilder.Entity<Car>()
+                .HasKey(u => u.CarId);
+                
+
+
             modelBuilder.Entity<Car>().Property(b => b.Model)
                 .IsRequired()
                 .HasMaxLength(150);
@@ -46,6 +50,17 @@ namespace WebSite.Models
                 .HasMany(m => m.Orders)
                 .WithOne(k => k.User)
                 .HasForeignKey(k => k.UserId);
+
+            modelBuilder.Entity<DescriotionCar>()
+                .HasKey(x => x.DescriotionCarId);
+
+            modelBuilder.Entity<Car>()
+                .HasOne(x => x.DescriotionCar)
+                .WithOne(y => y.Car)
+                .HasForeignKey<DescriotionCar>(p => p.CarId);
+                
+                
+                
 
         }
     }
