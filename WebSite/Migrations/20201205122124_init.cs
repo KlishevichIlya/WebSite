@@ -19,11 +19,25 @@ namespace WebSite.Migrations
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     isNew = table.Column<bool>(type: "bit", nullable: false),
                     img = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DescriotionCarId = table.Column<int>(type: "int", nullable: false)
+                    DescriptionCarId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cars", x => x.CarId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Moneys",
+                columns: table => new
+                {
+                    MoneyId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Dollar = table.Column<float>(type: "real", nullable: false),
+                    Euro = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Moneys", x => x.MoneyId);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,22 +58,24 @@ namespace WebSite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DescriotionCar",
+                name: "DescriotionCars",
                 columns: table => new
                 {
-                    DescriotionCarId = table.Column<int>(type: "int", nullable: false)
+                    DescriptionCarId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     typeFuel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Year = table.Column<int>(type: "int", nullable: false),
                     mileAge = table.Column<int>(type: "int", nullable: false),
                     Volume = table.Column<int>(type: "int", nullable: false),
+                    Header = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Information = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CarId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DescriotionCar", x => x.DescriotionCarId);
+                    table.PrimaryKey("PK_DescriotionCars", x => x.DescriptionCarId);
                     table.ForeignKey(
-                        name: "FK_DescriotionCar_Cars_CarId",
+                        name: "FK_DescriotionCars_Cars_CarId",
                         column: x => x.CarId,
                         principalTable: "Cars",
                         principalColumn: "CarId",
@@ -126,8 +142,8 @@ namespace WebSite.Migrations
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DescriotionCar_CarId",
-                table: "DescriotionCar",
+                name: "IX_DescriotionCars_CarId",
+                table: "DescriotionCars",
                 column: "CarId",
                 unique: true);
 
@@ -143,7 +159,10 @@ namespace WebSite.Migrations
                 name: "CarOrder");
 
             migrationBuilder.DropTable(
-                name: "DescriotionCar");
+                name: "DescriotionCars");
+
+            migrationBuilder.DropTable(
+                name: "Moneys");
 
             migrationBuilder.DropTable(
                 name: "Orders");

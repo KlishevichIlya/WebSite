@@ -10,12 +10,16 @@ namespace WebSite.Models
     {
         public CarContext(DbContextOptions<CarContext> options) : base(options)
         {
-            //Database.EnsureCreated();
+           
+//            Database.EnsureCreated();
         }
 
         public DbSet<Car> Cars { get; set; } //набор Car
         public DbSet<Order> Orders { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<DescriptionCar> DescriotionCars { get; set; }
+
+        public DbSet<Money> Moneys { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -51,17 +55,17 @@ namespace WebSite.Models
                 .WithOne(k => k.User)
                 .HasForeignKey(k => k.UserId);
 
-            modelBuilder.Entity<DescriotionCar>()
-                .HasKey(x => x.DescriotionCarId);
+            modelBuilder.Entity<DescriptionCar>()
+                .HasKey(x => x.DescriptionCarId);
 
             modelBuilder.Entity<Car>()
-                .HasOne(x => x.DescriotionCar)
+                .HasOne(x => x.DescriptionCar)
                 .WithOne(y => y.Car)
-                .HasForeignKey<DescriotionCar>(p => p.CarId);
-                
-                
-                
+                .HasForeignKey<DescriptionCar>(p => p.CarId);
 
+
+
+            modelBuilder.Entity<Money>().HasKey(x => x.MoneyId);
         }
     }
 }

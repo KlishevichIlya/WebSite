@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WebSite.Models;
+using WebSite.ViewModels;
 
 namespace WebSite.Controllers
 {
@@ -23,7 +24,10 @@ namespace WebSite.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await db.Cars.ToListAsync());
+            var model = new IndexViewModel();
+            model.Cars = await db.Cars.ToListAsync();
+            model.DescriptionCars = await db.DescriotionCars.ToListAsync();
+            return View(model);
         }
 
         public IActionResult Privacy()

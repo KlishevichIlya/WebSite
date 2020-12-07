@@ -1,6 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
+<html lang="ru">
+<head>
+    <link href="~/css/value.css" rel="stylesheet">
+</head>
+<body>
+    <value></value>
+    <hr />
+    <h3>Конвертер валют:</h3>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+            <span id="outputDollar" class="input-group-text">0.00</span>
+        </div>
+        <input id="inputDollar" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+        <span class="input-group-text">BYN</span>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">€</span>
+            <span id = "outputEuro" class="input-group-text">0.00</span>
+        </div>
+        <input id="inputEuro" type="text" class="form-control" aria-label="Euro amount (with dot and two decimal places)">
+        <span class="input-group-text">BYN</span>
+    </div>
 
-<p>Use this page to detail your site's privacy policy.</p>
+    <script src="~/js/convert.js"></script>
+</body>
+</html>

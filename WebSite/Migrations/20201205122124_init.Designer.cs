@@ -10,7 +10,7 @@ using WebSite.Models;
 namespace WebSite.Migrations
 {
     [DbContext(typeof(CarContext))]
-    [Migration("20201129185059_init")]
+    [Migration("20201205122124_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,7 @@ namespace WebSite.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DescriotionCarId")
+                    b.Property<int>("DescriptionCarId")
                         .HasColumnType("int");
 
                     b.Property<string>("Model")
@@ -78,15 +78,21 @@ namespace WebSite.Migrations
                     b.ToTable("CarOrder");
                 });
 
-            modelBuilder.Entity("WebSite.Models.DescriotionCar", b =>
+            modelBuilder.Entity("WebSite.Models.DescriptionCar", b =>
                 {
-                    b.Property<int>("DescriotionCarId")
+                    b.Property<int>("DescriptionCarId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
                     b.Property<int>("CarId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Header")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Information")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Volume")
                         .HasColumnType("int");
@@ -100,12 +106,30 @@ namespace WebSite.Migrations
                     b.Property<string>("typeFuel")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("DescriotionCarId");
+                    b.HasKey("DescriptionCarId");
 
                     b.HasIndex("CarId")
                         .IsUnique();
 
-                    b.ToTable("DescriotionCar");
+                    b.ToTable("DescriotionCars");
+                });
+
+            modelBuilder.Entity("WebSite.Models.Money", b =>
+                {
+                    b.Property<int>("MoneyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<float>("Dollar")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Euro")
+                        .HasColumnType("real");
+
+                    b.HasKey("MoneyId");
+
+                    b.ToTable("Moneys");
                 });
 
             modelBuilder.Entity("WebSite.Models.Order", b =>
@@ -183,11 +207,11 @@ namespace WebSite.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("WebSite.Models.DescriotionCar", b =>
+            modelBuilder.Entity("WebSite.Models.DescriptionCar", b =>
                 {
                     b.HasOne("WebSite.Models.Car", "Car")
-                        .WithOne("DescriotionCar")
-                        .HasForeignKey("WebSite.Models.DescriotionCar", "CarId")
+                        .WithOne("DescriptionCar")
+                        .HasForeignKey("WebSite.Models.DescriptionCar", "CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -207,7 +231,7 @@ namespace WebSite.Migrations
 
             modelBuilder.Entity("WebSite.Models.Car", b =>
                 {
-                    b.Navigation("DescriotionCar");
+                    b.Navigation("DescriptionCar");
 
                     b.Navigation("Orders");
                 });

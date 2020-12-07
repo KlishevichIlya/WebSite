@@ -17,7 +17,7 @@ namespace WebSite.Models
 
         public List<CarOrder> Orders { get; set; }
 
-        public int DescriotionCarId { get; set; }
-        public DescriotionCar DescriotionCar { get; set; }
+        public int DescriptionCarId { get; set; }
+        public DescriptionCar DescriptionCar { get; set; }
     }
 }

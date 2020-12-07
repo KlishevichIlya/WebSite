@@ -60,11 +60,11 @@ namespace WebSite
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            app.Run(async (context) => 
+            /*app.Run((context) => 
             {
                 logger.LogInformation("Processing request {0}", context.Request.Path);
-                await context.Response.WriteAsync("Hello world!");
-            });
+                //await context.Response.WriteAsync("Hello world!");
+            });*/
         }
     }
 }

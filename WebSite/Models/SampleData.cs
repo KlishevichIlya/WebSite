@@ -37,7 +37,8 @@ namespace WebSite.Models
                         Country = "USA",
                         Price = "100000$",
                         Color = "White",
-                        isNew = true
+                        isNew = true,
+                        img = "/images/tesla.jpg"
                     },
                     new Car
                     {
@@ -74,6 +75,19 @@ namespace WebSite.Models
                     );
                 await context.SaveChangesAsync();
             }
+
+
+            /*if (! await context.DescriotionCars.AnyAsync())
+            {
+                await context.DescriotionCars.AddRangeAsync(
+                    new DescriotionCar
+                    {
+
+                    }
+                    );
+            }*/
+            
+
 
         }
     }
