@@ -23,12 +23,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
                     </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
                     <li class="nav-item">
                         <a class="nav-link" href="~/Home/Privacy">Курсы валют</a>
                     </li>
+                    }
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a  class="nav-link" asp-controller="Account" asp-action="Logout">Выход</a>
                     </li>
+                    @*<form method="post" asp-controller="Account" asp-action="Logout">
+                        <input type="submit" value="Выход" />
+                    </form>*@
                 </ul>
 
             </div>

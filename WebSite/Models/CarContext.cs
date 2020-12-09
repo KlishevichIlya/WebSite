@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace WebSite.Models
 {
-    public class CarContext: DbContext
+    public class CarContext: IdentityDbContext<User>
     {
         public CarContext(DbContextOptions<CarContext> options) : base(options)
         {
            
-//            Database.EnsureCreated();
+           // Database.EnsureCreated();
         }
 
         public DbSet<Car> Cars { get; set; } //набор Car
         public DbSet<Order> Orders { get; set; }
-        public DbSet<User> Users { get; set; }
+        
         public DbSet<DescriptionCar> DescriotionCars { get; set; }
 
         public DbSet<Money> Moneys { get; set; }
@@ -47,7 +48,7 @@ namespace WebSite.Models
                 .HasForeignKey(x => x.OrderId);
 
 
-            modelBuilder.Entity<User>().HasKey(x => x.UserId);
+           // modelBuilder.Entity<User>().HasKey(x => x.UserId);
             modelBuilder.Entity<Order>().HasKey(x => x.OrderId);
 
             modelBuilder.Entity<User>()
