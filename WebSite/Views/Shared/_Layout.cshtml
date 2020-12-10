@@ -20,21 +20,34 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="~/Home/Index">Гланая <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="~/Account/Register">Регистрация</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="~/Account/Login">Вход</a>
+                        </li>
+
+
+                    }
                     @if (User.Identity.IsAuthenticated)
                     {
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Home/Privacy">Курсы валют</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/Privacy">Курсы валют</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Account" asp-action="Logout">Выход</a>
+                        </li>
                     }
                     <li class="nav-item">
-                        <a  class="nav-link" asp-controller="Account" asp-action="Logout">Выход</a>
+                        <a class="nav-link" href="~/Users/Index">Редактирование</a>
                     </li>
+
                     @*<form method="post" asp-controller="Account" asp-action="Logout">
-                        <input type="submit" value="Выход" />
-                    </form>*@
+        <input type="submit" value="Выход" />
+        </form>*@
                 </ul>
 
             </div>

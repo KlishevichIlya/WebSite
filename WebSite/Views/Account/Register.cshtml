@@ -11,66 +11,24 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/css/registration.css" rel="stylesheet">
 </head>
-    @*<h2>Регистрация нового пользователя</h2>
-    <form method="post" asp-controller="Account" asp-action="Register">
-        <div asp-validation-summary="ModelOnly"></div>
-        <div>
-            <label asp-for="Email"></label><br />
-            <input asp-for="Email" />
-            <span asp-validation-for="Email"></span>
-        </div>
-        <div>
-            <label asp-for="FirstName"></label><br />
-            <input asp-for="FirstName" />
-            <span asp-validation-for="FirstName"></span>
-        </div>
-        <div>
-            <label asp-for="SecondName"></label><br />
-            <input asp-for="SecondName" />
-            <span asp-validation-for="SecondName"></span>
-        </div>
-        <div>
-            <label asp-for="Year"></label><br />
-            <input asp-for="Year" />
-            <span asp-validation-for="Year"></span>
-        </div>
-        <div>
-            <label asp-for="Password"></label><br />
-            <input asp-for="Password" />
-            <span asp-validation-for="Password"></span>
-        </div>
-        <div>
-            <label asp-for="PasswordConfirm"></label><br />
-            <input asp-for="PasswordConfirm" />
-            <span asp-validation-for="PasswordConfirm"></span>
-        </div>
-        <div>
-            <input type="submit" value="Регистрация" />
-        </div>
-    </form>*@
-
-<!--77777777777777777777777777777777777777777-->
+    
     <body class="text-center">
 
         <main class="form-signin">
             <form method="post" asp-controller="Account" asp-action="Register">
+                <img src="~/images/logo.png" height="57" width="72" />
                 <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
 
-                
                 <input type="email" asp-for="Email" class="form-control" placeholder="Email" required="" autofocus="">
 
-                
                 <input type="text" asp-for="FirstName" class="form-control" placeholder="Имя" required="">
 
-                
                 <input type="text" asp-for="SecondName" class="form-control" placeholder="Фамилия" required="">
 
-               
                 <input type="text" asp-for="SecondName" class="form-control" placeholder="Год рождения" required="">
 
-                
-                <input type="password" asp-for="Password" class="form-control" placeholder="Пароль" required="">                
-                <input type="password"  asp-for="PasswordConfirm" class="form-control marg" placeholder="Подтверите пароль" required="">
+                <input type="password" asp-for="Password" class="form-control" placeholder="Пароль" required="">
+                <input type="password" asp-for="PasswordConfirm" class="form-control marg" placeholder="Подтверите пароль" required="">
 
 
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Зарегестрироваться</button>

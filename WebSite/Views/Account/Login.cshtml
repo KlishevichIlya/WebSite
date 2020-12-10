@@ -1,23 +1,37 @@
 ﻿@model WebSite.ViewModels.LoginViewModel
+@{
+    Layout = null;
+}
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Регистрация</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/registration.css" rel="stylesheet">
+</head>
+<body class="text-center">
 
-<h2>Вход в приложение</h2>
-<form method="post" asp-controller="Account" asp-action="Login">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
-    <div>
-        <label asp-for="Password"></label><br />
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="RememberMe"></label><br />
-        <input asp-for="RememberMe" />
-    </div>
-    <div>
-        <input type="submit" value="Войти" />
-    </div>
-</form>
+    <main class="form-signin">
+        <form method="post" asp-controller="Account" asp-action="Login">
+            <img src="~/images/logo.png" height="57" width="72" />
+            <h1 class="h3 mb-3 fw-normal">Вход</h1>
+
+            <label asp-for="Email" idden>Email</label>
+            <input type="email" asp-for="Email" class="form-control" placeholder="Email" required="" autofocus="">
+
+            <label asp-for="Password" hidden>Password</label>
+            <input type="text" asp-for="Password" class="form-control" placeholder="Пароль" required="">
+
+            <label>
+                <input type="checkbox" value="remember-me"> Запомнить меня
+            </label>
+
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+            <p class="mt-5 mb-3 text-muted">© Klishevich</p>
+        </form>
+        </main>
+    </body>
+

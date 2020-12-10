@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7DvrQSlhl7P/NS8P0jfqySvtr45akcLcCn3NBVWHxU1lqi7eZ0MAFjWphCxglF7hZCETHWPJyUxMEwjaCIrLBg==",
+  "dgSpecHash": "zHy9+MNnmsm6ORtHjPjkTOK6RWSQFN9Kaa5zl4lZw4Qr7RVg0s6In6jbXm0UGhJR7vLdOq6k9U0r1qxTIny1iw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ilya\\source\\repos\\WebSite\\WebSite\\WebSite.csproj",
   "expectedPackageFiles": [
@@ -105,7 +105,9 @@
     "C:\\Users\\Ilya\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Ilya\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Ilya\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Ilya\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\Ilya\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Ilya\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\Ilya\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.10\\microsoft.netcore.app.host.win-x64.3.1.10.nupkg.sha512"
   ],
   "logs": []
 }

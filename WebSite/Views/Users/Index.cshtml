@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebSite.Models.User>
+@{
+    
+    ViewBag.Title = "Список пользователей";
+}
+<head>
+    <link href="~/css/showUsers.css" rel="stylesheet">
+    <title>Редактирование пользователей</title>
+</head>
+
+<body>
+    <h1 class="text-center">Редактирование пользователей</h1>
+    <a asp-action="Create">Добавить пользователя</a>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Email</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Год рождения</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.FirstName</td>
+                <td>@user.SecondName</td>
+                <td>@user.Age</td>
+
+                <td>
+                    <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                        <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id">Изменить</a>
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Удалить
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
